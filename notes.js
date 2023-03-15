@@ -37,8 +37,12 @@ const listNotes = () => {
 const readNote = (title) => {
     const notes = loadNotes()
     const note = notes.find(note => note.title === title)
-    console.log(chalk.inverse('Note'))
-    console.log(`Title: ${note.title} Body: ${note.body}`)
+    if (note) {
+        console.log(chalk.inverse('Note'))
+        console.log(`Title: ${note.title} Body: ${note.body}`)
+    } else {
+        console.log(chalk.red('note not found'))
+    }
 
 }
 const saveNotes = (notes) => {
