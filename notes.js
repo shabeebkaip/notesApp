@@ -8,8 +8,8 @@ const getNotes = () => {
 
 const addNotes = (title, body) => {
     let notes = loadNotes()
-    const duplicateNotes = notes.filter((note) => note.title === title)
-    if (duplicateNotes.length === 0) {
+    const duplicateNotes = notes.find((note) => note.title === title)
+    if (!duplicateNotes) {
         notes = [...notes, { title, body }]
         saveNotes(notes)
         console.log('New note added!')
